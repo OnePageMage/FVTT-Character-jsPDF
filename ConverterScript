@@ -1,4 +1,25 @@
-var sheet = [{
+// note to self: do not commit until verified works at https://parall.ax/products/jspdf
+
+// instructions:
+// there are two lines with a bunch of *'s
+// paste the .json export from FVTT over top of whatever is between those two lines
+// then copy everything and paste it into your preferred jsPDF thingamabobber
+// if this sounds like a tedious way to do it, congrats, you know infinitely more about javascript than I do,
+// which is nothing and it's a miracle any of this works at all.
+
+// gl;hf --One Page Mage
+
+
+
+// PASTE FVTT CHARACTER JSON BETWEEN LINES OF *'s
+
+// ************************************************
+
+var sheet = [
+
+// ************************************************
+
+{
   "_id": "zxGtjeP7l1blJVoC",
   "name": "Dan Golf, the Taupe",
   "type": "character",
@@ -30,6 +51,10 @@ var sheet = [{
       }
     },
 }}];
+
+
+// ************************************************
+
 
 
 
@@ -229,7 +254,7 @@ sheet.forEach(function(sheet, i){
 		
 
 
-// need this
+// need this to close out the sheet function thing
 
 });
 
