@@ -1,0 +1,239 @@
+var sheet = [{
+  "_id": "zxGtjeP7l1blJVoC",
+  "name": "Dan Golf, the Taupe",
+  "type": "character",
+  "data": {
+    "abilities": {
+      "str": {
+        "value": 8,
+        "proficient": 0
+      },
+      "dex": {
+        "value": 13,
+        "proficient": 0
+      },
+      "con": {
+        "value": 16,
+        "proficient": 0
+      },
+      "int": {
+        "value": 16,
+        "proficient": 1
+      },
+      "wis": {
+        "value": 12,
+        "proficient": 1
+      },
+      "cha": {
+        "value": 10,
+        "proficient": 0
+      }
+    },
+}}];
+
+
+
+var doc = new jsPDF();
+sheet.forEach(function(sheet, i){
+
+
+	doc.setFontSize(22);
+
+    doc.text(20, 10 + (i * 10), 
+        "Character: " + sheet.name + " "  
+    );
+	
+	// draw boxes for modifiers
+	
+	doc.rect(20, 20, 20, 20); // empty square
+
+	doc.rect(45, 20, 20, 20); // empty square
+	
+	doc.rect(70, 20, 20, 20); // empty square
+
+	doc.rect(95, 20, 20, 20); // empty square
+	
+	doc.rect(120, 20, 20, 20); // empty square
+
+	doc.rect(145, 20, 20, 20); // empty square
+	
+	
+	
+	
+	
+	
+	
+	
+	// if statements to determine positive or negative modifiers
+	
+	// str 
+	
+    if(Math.floor((sheet.data.abilities.str.value - 10)/2) < 0) {
+		doc.text(27,33,
+			"" + Math.floor((sheet.data.abilities.str.value - 10)/2) 
+		);
+	} else {
+			doc.text(27,33,
+			"+" + Math.floor((sheet.data.abilities.str.value - 10)/2) 
+		);
+	} 
+	
+	// dex 
+	
+	if(Math.floor((sheet.data.abilities.dex.value - 10)/2) < 0) {
+		doc.text(51,33,
+			"" + Math.floor((sheet.data.abilities.dex.value - 10)/2) 
+		);
+	} else {
+			doc.text(51,33,
+			"+" + Math.floor((sheet.data.abilities.dex.value - 10)/2) 
+		);
+	} 
+	
+	// con 
+	
+	if(Math.floor((sheet.data.abilities.con.value - 10)/2) < 0) {
+		doc.text(76,33,
+			"" + Math.floor((sheet.data.abilities.con.value - 10)/2) 
+		);
+	} else {
+			doc.text(76,33,
+			"+" + Math.floor((sheet.data.abilities.con.value - 10)/2) 
+		);
+	} 
+	
+	// int 
+		
+	if(Math.floor((sheet.data.abilities.int.value - 10)/2) < 0) {
+		doc.text(101,33,
+			"" + Math.floor((sheet.data.abilities.int.value - 10)/2) 
+		);
+	} else {
+			doc.text(101,33,
+			"+" + Math.floor((sheet.data.abilities.int.value - 10)/2) 
+		);
+	} 
+	
+	// wis
+	
+	if(Math.floor((sheet.data.abilities.wis.value - 10)/2) < 0) {
+		doc.text(126,33,
+			"" + Math.floor((sheet.data.abilities.wis.value - 10)/2) 
+		);
+	} else {
+			doc.text(126,33,
+			"+" + Math.floor((sheet.data.abilities.wis.value - 10)/2) 
+		);
+	} 
+	
+	// cha
+	
+	if(Math.floor((sheet.data.abilities.cha.value - 10)/2) < 0) {
+		doc.text(150,33,
+			"" + Math.floor((sheet.data.abilities.cha.value - 10)/2) 
+		);
+	} else {
+			doc.text(150,33,
+			"+" + Math.floor((sheet.data.abilities.cha.value - 10)/2) 
+		);
+	} 
+
+
+
+
+	// normal size font now
+	
+	doc.setFontSize(16);
+	
+
+	
+	
+	// ability scores
+	
+    doc.text(20,45,
+        "STR: " + sheet.data.abilities.str.value 
+    );
+    doc.text(45,45,
+        "DEX: " + sheet.data.abilities.dex.value 
+    );
+    doc.text(70,45,
+        "CON: " + sheet.data.abilities.con.value 
+    );
+    doc.text(95,45,
+        "INT: " + sheet.data.abilities.int.value 
+    );
+    doc.text(120,45,
+        "WIS: " + sheet.data.abilities.wis.value 
+    );
+    doc.text(145,45,
+        "CHA: " + sheet.data.abilities.cha.value 
+    );
+	
+	
+	
+	// set up circles
+	doc.setFillColor(0, 0, 0)
+
+		
+	// proficiencies
+		
+	// str
+	
+	if( sheet.data.abilities.str.proficient < 1 ) {
+		doc.circle(31,49, 2.5)
+	} else {
+		doc.circle(31,49, 3, 'FD')
+	} 
+	
+	// dex
+	
+	if( sheet.data.abilities.dex.proficient < 1 ) {
+		doc.circle(56,49, 2.5)
+	} else {
+		doc.circle(56,49, 3, 'FD')
+	} 
+	
+	// con
+	
+	if( sheet.data.abilities.con.proficient < 1 ) {
+		doc.circle(81,49, 2.5)
+	} else {
+		doc.circle(81,49, 3, 'FD')
+	} 
+	
+	// int
+	
+	if( sheet.data.abilities.int.proficient < 1 ) {
+		doc.circle(106,49, 2.5)
+	} else {
+		doc.circle(106,49, 3, 'FD')
+	} 
+	
+	// wis
+	
+	if( sheet.data.abilities.wis.proficient < 1 ) {
+		doc.circle(131,49, 2.5)
+	} else {
+		doc.circle(131,49, 3, 'FD')
+	} 
+	
+	// cha
+	
+	if( sheet.data.abilities.cha.proficient < 1 ) {
+		doc.circle(156,49, 2.5)
+	} else {
+		doc.circle(156,49, 3, 'FD')
+	} 
+	
+		
+		
+
+
+// need this
+
+});
+
+
+// end it
+
+doc.save('Character.pdf');
